@@ -1,9 +1,10 @@
-import {Text,StyleSheet,View,TextInput} from 'react-native'
+import {Text,StyleSheet,View,TextInput,ScrollView} from 'react-native'
 import Button from '../components/UI/Button';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 
 const SignUpSchema = Yup.object().shape({
+  name: Yup.string().required('Name is required'),
   email: Yup.string().email('Please enter valid email').required('Email is required'),
   password: Yup.string().min(6,({min}) => `Password must be at least ${min} characters`).required('Password is required'),
 });
@@ -16,8 +17,9 @@ export const SignUp = ({navigation}) => {
 
     return (
       <>
+      <ScrollView>
         <Formik
-          initialValues={{ email: "", password: "" }}
+          initialValues={{ name:"" , email: "", password: "" }}
           validationSchema={SignUpSchema}
           onSubmit={(values) => {
             console.log(values);
@@ -31,7 +33,23 @@ export const SignUp = ({navigation}) => {
             errors,
             isValid,
           }) => (
+            
             <View style={styles.container}>
+            <Text style={styles.labelFullName}>Full Name</Text>
+              <TextInput
+                onChangeText={handleChange("name")}
+                onBlur={handleBlur("name")}
+                value={values.name}
+                style={styles.name}
+                keyboardType="default"
+                placeholder="Enter full name..."
+                name="name"
+              />
+              {errors.email && (
+                <View style={styles.containerError}>
+                  <Text style={styles.error}>{errors.name}</Text>
+                </View>
+              )}
               <Text style={styles.labelEmail}>E-mail</Text>
               <TextInput
                 onChangeText={handleChange("email")}
@@ -54,7 +72,7 @@ export const SignUp = ({navigation}) => {
                 value={values.password}
                 name="password"
                 secureTextEntry={true}
-                placeholder="enter password..."
+                placeholder="Enter password..."
                 style={styles.password}
               />
               {errors.password && (
@@ -67,13 +85,14 @@ export const SignUp = ({navigation}) => {
                   mode='flat'
                   onPress={handleSubmit}
                   android_ripple={{ color: "#ccc" }}
-                  disabled={!isValid || !values.email || !values.password}
+                  disabled={!isValid }
                   style={styles.submit}
                 >
                   Sign Up
                 </Button>
               </View>
             </View>
+           
           )}
         </Formik>
 
@@ -89,6 +108,7 @@ export const SignUp = ({navigation}) => {
             >
             Login
           </Button>
+          </ScrollView>
       </>
     );
 }
@@ -97,13 +117,29 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     alignSelf: "center",
-    marginTop: 50,
+    marginTop: 10,
+    
+  },
+  labelFullName: {
+    fontSize: 20,
+    color: "#fff",
+    marginLeft: 25,
+    fontWeight: "bold",
+  },
+  name: {
+    borderWidth: 1,
+    borderColor: "#000",
+    borderRadius: 10,
+    padding: 10,
+    margin: 20,
+    fontSize: 18,
+    backgroundColor: "#fff",
   },
   email: {
     borderWidth: 1,
     borderColor: "#000",
     borderRadius: 10,
-    padding: 15,
+    padding: 10,
     margin: 20,
     fontSize: 18,
     backgroundColor: "#fff",
@@ -124,7 +160,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#000",
     borderRadius: 10,
-    padding: 15,
+    padding: 10,
     margin: 20,
     fontSize: 18,
     backgroundColor: "#fff",

@@ -70,7 +70,7 @@ export const Login = ({navigation}) => {
                   onPress={handleSubmit}
                   android_ripple={{ color: "#ccc" }}
                   style={styles.submit}
-                  disabled={!isValid || !values.email || !values.password}
+                  disabled={!isValid }
                 >
                   Login
                 </Button>
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     container:{
         width:'100%',
         alignSelf:'center',
-        marginTop:50,
+        marginTop:30,
         
     },
    email: {
@@ -164,6 +164,7 @@ const styles = StyleSheet.create({
         width:'50%',
         alignSelf:'center',
         marginTop: 3,
+
     },
     containerError:{
       marginTop: 5,
