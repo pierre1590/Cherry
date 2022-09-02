@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import {Text,StyleSheet,View,TextInput} from 'react-native';
 import Button from '../components/UI/Button';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
+import { signIn } from '../utils/auth';
+import { AuthContext } from '../context/auth-context';
 
 
 const LoginSchema = Yup.object().shape({
@@ -12,9 +14,10 @@ const LoginSchema = Yup.object().shape({
 
 
 export const Login = ({navigation}) => {
-    
+    const [isAuthenticated, setAuthenticated] = useState(false);
 
-    
+    const authCtx = useContext(AuthContext);
+   
 
     return (
       <>
@@ -22,7 +25,16 @@ export const Login = ({navigation}) => {
           initialValues={{ email: "", password: "" }}
           validationSchema={LoginSchema}
           onSubmit={(values) => {
-            console.log(values);
+            setAuthenticated(true);
+            signIn(values)
+            .then(() => {
+              const token = signIn(values);
+              authCtx.authenticate(token);
+            })
+            .catch((err) => {
+              setAuthenticated(false);
+            console.error(err);
+            });
           }}
         >
           {({

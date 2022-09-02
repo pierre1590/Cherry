@@ -1,10 +1,12 @@
-import {Text,StyleSheet,View,TextInput,ScrollView} from 'react-native'
+import {useState,useContext} from 'react';
+import {Text,StyleSheet,View,TextInput,ScrollView,Alert} from 'react-native'
 import Button from '../components/UI/Button';
 import {Formik} from 'formik';
+import {AuthContext} from '../context/auth-context';
 import * as Yup from 'yup';
+import { createUser } from '../utils/auth';
 
 const SignUpSchema = Yup.object().shape({
-  name: Yup.string().required('Name is required'),
   email: Yup.string().email('Please enter valid email').required('Email is required'),
   password: Yup.string().min(6,({min}) => `Password must be at least ${min} characters`).required('Password is required'),
 });
@@ -12,17 +14,27 @@ const SignUpSchema = Yup.object().shape({
 
 
 export const SignUp = ({navigation}) => {
-
-    
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+  
+    const authCtx = useContext(AuthContext);
 
     return (
       <>
       <ScrollView>
         <Formik
-          initialValues={{ name:"" , email: "", password: "" }}
+          initialValues={{ email: "", password: "" }}
           validationSchema={SignUpSchema}
           onSubmit={(values) => {
-            console.log(values);
+          setIsAuthenticated(true);
+           createUser(values)
+            .then(() => {
+              const token = createUser(values);
+              authCtx.authenticate(token);
+            }).catch((err) => {
+              setIsAuthenticated(false);
+              console.error(err);
+            }
+            );
           }}
         >
           {({
@@ -35,21 +47,6 @@ export const SignUp = ({navigation}) => {
           }) => (
             
             <View style={styles.container}>
-            <Text style={styles.labelFullName}>Full Name</Text>
-              <TextInput
-                onChangeText={handleChange("name")}
-                onBlur={handleBlur("name")}
-                value={values.name}
-                style={styles.name}
-                keyboardType="default"
-                placeholder="Enter full name..."
-                name="name"
-              />
-              {errors.email && (
-                <View style={styles.containerError}>
-                  <Text style={styles.error}>{errors.name}</Text>
-                </View>
-              )}
               <Text style={styles.labelEmail}>E-mail</Text>
               <TextInput
                 onChangeText={handleChange("email")}
@@ -119,21 +116,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 10,
     
-  },
-  labelFullName: {
-    fontSize: 20,
-    color: "#fff",
-    marginLeft: 25,
-    fontWeight: "bold",
-  },
-  name: {
-    borderWidth: 1,
-    borderColor: "#000",
-    borderRadius: 10,
-    padding: 10,
-    margin: 20,
-    fontSize: 18,
-    backgroundColor: "#fff",
   },
   email: {
     borderWidth: 1,
