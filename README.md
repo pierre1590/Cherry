@@ -30,7 +30,7 @@ The app I created consists in creating an ecommerce to sell cherries online with
 # API
 - [Spoonacular API](https://spoonacular.com/food-api/docs)
 
-# Tecnologies used
+# Technologies used
 ## Backend
 - Firebase authentication
 
