@@ -39,4 +39,4 @@ Piero Sabino - [@SabinoPiero](https://twitter.com/SabinoPiero) - [P137ru590](htt
 
 Project Link : [https://github.com/pierre1590/Cherry](https://github.com/pierre1590/Cherry)
 
-[Go up][#top]
+[Go up](#top)
