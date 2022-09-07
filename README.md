@@ -10,6 +10,7 @@
 - [Installation](#installation)
 - [API](#api)
 - [Technologies used](#technologies-used)
+- [Contact](#contact)
 
 
 # About the Project
@@ -23,7 +24,7 @@ The app I created consists in creating an ecommerce to sell cherries online with
 
 
 # API
-
+- [Spoonacular API](https://spoonacular.com/food-api/docs)
 
 # Tecnologies used
 ## Backend
@@ -33,4 +34,9 @@ The app I created consists in creating an ecommerce to sell cherries online with
 - React Native
 - Expo
 
+# Contact
+Piero Sabino - [@SabinoPiero](https://twitter.com/SabinoPiero) - [P137ru590](https://www.instagram.com/p137ru590/?hl=it) - [Piero Sabino](https://www.linkedin.com/in/pierosabino/) -
 
+Project Link : [https://github.com/pierre1590/Cherry](https://github.com/pierre1590/Cherry)
+
+[Go up][#top]
