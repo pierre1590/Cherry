@@ -1,4 +1,4 @@
-import { View,StyleSheet} from 'react-native';
+import { View,StyleSheet,Platform} from 'react-native';
 
 export const Card = ({ children, style }) => {
     return (
@@ -15,7 +15,7 @@ export const Card = ({ children, style }) => {
             padding: 20,
             shadowColor: '#000',
             shadowOffset: { width: 0, height: 2 },
-            shadowOpacity: 0.1,
+            shadowOpacity: Platform.OS === 'android' ? 0.2 : 0.5,
             shadowRadius: 2,
             elevation: 1,
             marginHorizontal: 10,

@@ -13,11 +13,13 @@ const LoginSchema = Yup.object().shape({
 });
 
 
+
 export const Login = ({navigation}) => {
     const [isAuthenticated, setAuthenticated] = useState(false);
 
     const authCtx = useContext(AuthContext);
-   
+    
+ 
 
     return (
       <>

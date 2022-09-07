@@ -9,7 +9,8 @@ export const CartContext = createContext({
     clearCart: () => {},
 });
 
-export const  CartContextProvider = ({children}) => {
+
+ function  CartContextProvider({children}) {
     const [cart, setCart] = useState([]);
 
     const addToCart = async (item) => {
@@ -21,6 +22,8 @@ export const  CartContextProvider = ({children}) => {
             console.log(err);
         }
     }
+
+  
 
     const removeFromCart = async (item) => {
         const newCart = cart.filter((i) => i.id !== item.id);
@@ -52,3 +55,4 @@ export const  CartContextProvider = ({children}) => {
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
+export default CartContextProvider;
