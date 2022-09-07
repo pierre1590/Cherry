@@ -1,8 +1,8 @@
 # Cherry App
  
-<p text-align='center'>
+<div text-align="center">
 <img src="https://i.ibb.co/dMgdT2t/IMG-0193.jpg" alt="Cherry App" width="300" height="450">
-</p>
+</div>
    
 
 
