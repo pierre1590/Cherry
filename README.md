@@ -1,7 +1,7 @@
 # Cherry App
  
 
-<img src="https://i.ibb.co/dMgdT2t/IMG-0193.jpg" alt="Cherry App" width="350" height="500">
+<img src="https://i.ibb.co/dMgdT2t/IMG-0193.jpg" alt="Cherry App" width="350" height="600">
 
    
 
