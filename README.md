@@ -18,6 +18,7 @@ The app I created consists in creating an ecommerce to sell cherries online with
 
 # Installation
 1) In the root folder create a new file called `.env` and inside:
+
     ``` 
     API_KEY = Your API key //Firebase API key
     KEY_RECIPE = Your API key //Recipe API key
