@@ -1,21 +1,33 @@
 import React, {useEffect, useState} from 'react'
 import { Card } from '../components/UI/Card'
-import { View, StyleSheet, Text, FlatList, Image,Linking} from 'react-native'
-import Button from '../components/UI/Button'
-import {Data} from '../recipe'
+import { View, StyleSheet, Text, FlatList, Image,ScrollView} from 'react-native'
+
+import {getRecipe} from '../apiUtil/apiRecipe'
+
 
 export const Recipes = () => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
-    
-    useEffect(() => {
-      //Convert Data.js to a javascript object
-      const item = Object.values(Data);
-      setRecipes(item);
-    }, []);
-  
 
+    
+    
+   useEffect(() => {
+        const fetchRecipes = async () => {
+            setLoading(true);
+            try {
+                const response = await getRecipe();
+                setRecipes(response);
+            } catch (error) {
+                setError(error.message);
+            }
+            setLoading(false);
+        }
+        fetchRecipes();
+    }, []);
+   
+        
+    
 
    
     return (
@@ -25,21 +37,10 @@ export const Recipes = () => {
                 keyExtractor={item => item.id}
                 renderItem={({item}) => (
                     <Card>
-                       <View style={styles.container}>
-                           <View style={styles.textContainer}>
-                              <Text style={styles.title}>{item.title}</Text>
-                           </View>
-                            <View>
-                              <Image style={styles.image} source={{uri: item.image}}/>
-                            </View>
-                            <View style={styles.textContainer}>
-                                <Text style={styles.text}>Ready in {item.readyInMinutes} minutes</Text>
-                                <Text style={styles.text}>Servings {item.servings}</Text>
-                            </View>
-                            <View style={styles.buttonContainer}>
-                                <Button onPress={() => Linking.openURL(item.sourceUrl)}>View Recipe</Button>
-                            </View>
-                       </View>
+                        <View style={styles.container}>
+                        <Text style={styles.title}>{item.title}</Text>
+                            <Image style={styles.image} source={{uri: item.image}} />
+                        </View>
                     </Card>
                 )}
             />
@@ -64,6 +65,7 @@ const styles = StyleSheet.create({
         width: 150,
         height: 158,
         borderRadius: 15,
+        alignSelf: 'center',
     },
     textContainer: {
       marginVertical: 10,
@@ -73,6 +75,7 @@ const styles = StyleSheet.create({
       padding: 10,
     },
     title: {
+        marginBottom: 10,
         fontSize: 25,
         fontWeight: 'bold',
         textAlign: 'center',
@@ -87,6 +90,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 10,
     },
+    ingredients: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+    }
 });
 
 

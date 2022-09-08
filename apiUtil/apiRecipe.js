@@ -3,7 +3,10 @@ import axios from 'axios';
 
 
 export const getRecipe = async () => {
-    const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=cherry&apiKey=${RECIPE_KEY}`;
+
+   
+    const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=cherry&apiKey=${RECIPE_KEY}&number=100`;
+    
     try {
         const response = await axios.get(url);
         return response.data;
@@ -11,4 +14,5 @@ export const getRecipe = async () => {
        throw new Error(error);
     }
 };
+
 

@@ -73,7 +73,7 @@ export const Cart = () => {
     const checkoutFailed = () => {
       Alert.alert(
         'Checkout Failed',
-        'Your cart is empty.\nPlease add some items to your cart.',
+        'Your cart is empty.\nPlease add some products to your cart.',
         [
           {
             text: 'Products',
