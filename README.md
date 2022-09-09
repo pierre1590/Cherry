@@ -7,6 +7,7 @@
 
 ## Table of Contents
 - [About the Project](#about-the-project)
+- [Gallery](#gallery)
 - [Installation](#installation)
 - [APIs](#apis)
 - [Technologies used](#technologies-used)
