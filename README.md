@@ -1,7 +1,6 @@
 # Cherry App
  
-
-## Table of Contents
+<!--- TABLE OF CONTENTS -->
 <details open='open'>
     <summary>Table of Contents</summary>
     <ol>
