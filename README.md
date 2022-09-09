@@ -16,6 +16,9 @@
 # About the Project
 The app I created consists in creating an ecommerce to sell cherries online with the possibility of buying from the comfort of your home, directly from the producer to the consumer.
 
+#  Gallery
+To see the photos of the app click [here](https://imgur.com/a/0Z0ZQZS)
+
 # Installation
 1) In the root folder create a new file called `.env` and inside:
 
