@@ -8,7 +8,7 @@
 ## Table of Contents
 - [About the Project](#about-the-project)
 - [Installation](#installation)
-- [API](#api)
+- [APIs](#apis)
 - [Technologies used](#technologies-used)
 - [Contact](#contact)
 
@@ -28,7 +28,7 @@ The app I created consists in creating an ecommerce to sell cherries online with
 4) Open the app on your device using the Expo Go app by framing the QR code with the camera.
 
 
-# API
+# APIs
 - [Firebase](https://firebase.google.com/)
 - [Spoonacular API](https://spoonacular.com/food-api/docs)
 
