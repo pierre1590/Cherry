@@ -23,8 +23,8 @@ The app I created consists in creating an ecommerce to sell cherries online with
     API_KEY = Your API key //Firebase API key
     RECIPE_KEY = Your API key //Recipe API key Spoonacular
     ```
-2) From the terminal give the following command `yarn`.
-3) From the termianl give the following command `expo start`.
+2) From the terminal give the following command `yarn` or `npm install` to install all the dependencies.
+3) From the termianl give the following command `expo start` to start the project.
 4) Open the app on your device using the Expo Go app by framing the QR code with the camera.
 
 
