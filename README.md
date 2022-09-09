@@ -2,12 +2,19 @@
  
 
 ## Table of Contents
-- [About the Project](#about-the-project)
-- [Gallery](#gallery)
-- [Installation](#installation)
-- [APIs](#apis)
-- [Technologies used](#technologies-used)
-- [Contact](#contact)
+<details open='open'>
+    <summary>Table of Contents</summary>
+    <ol>
+        <li><a href="#about-the-project">About the Project</a></li>
+        <li>
+        <a href="#gallery">Gallery</a>
+        </li>
+        <li><a href=#installation>Installation</a></li>
+        <li><a href=#apis>APIs</a></li>
+        <li><a href="#technologies-used">Technologies used</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ol>
+</details>
 
 
 
