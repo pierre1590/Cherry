@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 import { createUser } from '../utils/auth';
 
 const SignUpSchema = Yup.object().shape({
-  email: Yup.string().email('Please enter valid email').required('Email is required'),
+  email: Yup.string().email('Please enter valid email').required('Email is required').lowercase(),
   password: Yup.string().min(6,({min}) => `Password must be at least ${min} characters`).required('Password is required'),
 });
 
