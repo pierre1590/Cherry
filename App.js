@@ -3,15 +3,15 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet,ImageBackground,Alert, View } from 'react-native';
 import { NavigationContainer,useNavigation } from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {Products} from './screens/Products';
-import {Login} from './screens/Login';
-import {SignUp} from './screens/SignUp';
-import {Recipes} from './screens/Recipes';
-import { About } from './screens/About';
-import {Cart} from './screens/Cart';
+import {Products} from './src/screens/Products';
+import {Login} from './src/screens/Login';
+import {SignUp} from './src/screens/SignUp';
+import {Recipes} from './src/screens/Recipes';
+import { About } from './src/screens/About';
+import {Cart} from './src/screens/Cart';
 import {Ionicons} from '@expo/vector-icons';
-import AuthContextProvider,{AuthContext} from './context/auth-context';
-import CartContextProvider,{CartContext} from './context/cart-context';
+import AuthContextProvider,{AuthContext} from './src/context/auth-context';
+import CartContextProvider,{CartContext} from './src/context/cart-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AppLoading from 'expo-app-loading';
 
@@ -313,8 +313,6 @@ function Root() {
     fetchToken();
   }, []);
 
- 
-
 
 
   if (isTryingLogin) {
@@ -335,8 +333,7 @@ function Root() {
       <StatusBar style="light" />
 
       <ImageBackground
-        
-        source={require("../src/assets/img/cherries.png")}
+        source={require("./src/assets/img/cherries.png")}
         style={styles.backgroundImage}
       >
         <AuthContextProvider>

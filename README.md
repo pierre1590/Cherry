@@ -8,6 +8,7 @@
         <li>
         <a href="#gallery">Gallery</a>
         </li>
+        <li><a href="#demo">Demo</a></li>
         <li><a href=#installation>Installation</a></li>
         <li><a href=#apis>APIs</a></li>
         <li><a href="#technologies-used">Technologies used</a></li>
@@ -23,6 +24,9 @@ The app I created consists in creating an ecommerce to sell cherries online with
 
 #  Gallery
 To see the photos of the app, click [here](Gallery.md).
+
+# Demo
+To see the demo of the app, click [here](https://vimeo.com/750767238).
 
 # Installation
 1) In the root folder create a new file called `.env` and inside:
